@@ -230,3 +230,76 @@ img {
   width: 100%;
   border-radius: 5px;
 }
+
+@keyframes arrow {
+  from {
+    right: 30px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .structure {
+    grid-template-areas:
+      "header header header"
+      "sidenav content content"
+      "sidenav announcement announcement"
+      "footer footer footer";
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .structure {
+    grid-template-columns: 100%;
+    grid-template-areas:
+      "header"
+      "sidenav"
+      "content"
+      "announcement"
+      "footer";
+  }
+  .header {
+    grid-template-columns: auto;
+  }
+
+  .logo {
+    margin-bottom: 20px;
+  }
+
+  .header nav ul {
+    gap: 10px;
+  }
+
+  .header nav a {
+    font-size: 1em;
+  }
+
+  .sidenav {
+    overflow-x: auto;
+    padding: 0 30px;
+    position: relative;
+  }
+
+  .sidenav::after {
+    content: "→";
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    color: rgba(0, 0, 0, 0.3);
+    animation: arrow 0.5s ease-in 0s infinite alternate;
+  }
+
+  .sidenav ul {
+    display: flex;
+  }
+
+  .sidenav li {
+    flex: 1 0 60px;
+  }
+
+  .sidenav li a {
+    margin: 30px 30px 30px 0;
+  }
+}
